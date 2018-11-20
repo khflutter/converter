@@ -9,7 +9,7 @@ class Product extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Column(
+    return ListView(
       children: products
           .map((ele) => Card(
                 child: Column(
