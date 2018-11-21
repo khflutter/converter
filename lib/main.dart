@@ -17,6 +17,9 @@ class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
   final List<Widget> _children = [];
 
+  String appName = "ខ្នាតគម្ពី";
+  double drawerFontSize = 18.0;
+
   int onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
@@ -27,29 +30,59 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Color(0xFF484B5B),
+      ),
       home: Scaffold(
         drawer: Drawer(
           child: Column(
             children: <Widget>[
               AppBar(
                 automaticallyImplyLeading: false,
-                title: Text("App Name"),
+                title: Text(
+                  appName,
+                  style: TextStyle(
+                    fontFamily: "khmerM1",
+                    fontSize: drawerFontSize,
+                  ),
+                ),
               ),
               ListTile(
-                title: Text("Home"),
+                leading: Icon(Icons.home),
+                title: Text(
+                  "ទំព័រដើម",
+                  style: TextStyle(
+                    fontFamily: "KhmerBattambangBold",
+                    fontSize: drawerFontSize,
+                  ),
+                ),
                 onTap: () {
                   print("Clicked on Tap");
                 },
               ),
               ListTile(
-                title: Text("About"),
+                leading: Icon(Icons.info_outline),
+                title: Text(
+                  "អំពីពួកយើង",
+                  style: TextStyle(
+                    fontFamily: "KhmerBattambangBold",
+                    fontSize: drawerFontSize,
+                  ),
+                ),
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => AboutPage()));
                 },
               ),
               ListTile(
-                title: Text("Settings"),
+                leading: Icon(Icons.settings),
+                title: Text(
+                  "ការកំណត់",
+                  style: TextStyle(
+                    fontFamily: "KhmerBattambangBold",
+                    fontSize: drawerFontSize,
+                  ),
+                ),
                 onTap: () {
                   print("Clicked on Tap");
                 },
@@ -58,23 +91,43 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
         appBar: AppBar(
-          title: Text("Khmer Unit"),
+          title: Text(
+            appName,
+            style: TextStyle(
+              fontFamily: "khmerM1",
+            ),
+          ),
         ),
         body: ProductManager(),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              title: new Text('Home'),
+              icon: Icon(Icons.home),
+              title: Text(
+                'ទំព័រដើម',
+                style: TextStyle(
+                  fontFamily: "KhmerBattambangBold"
+                ),
+              ),
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.mail),
-              title: new Text('Messages'),
+              title: new Text(
+                "ផ្ញើរសារ",
+                style: TextStyle(
+                  fontFamily: "KhmerBattambangBold"
+                ),
+              ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              title: Text('Profile'),
+              title: Text(
+                "រូបតំណាង",
+                style: TextStyle(
+                  fontFamily: "KhmerBattambangBold"
+                ),
+              ),
             ),
           ],
         ),
