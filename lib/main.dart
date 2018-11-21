@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import './product_manager.dart';
 import './pages/about.dart';
 
+// Tabs
+import './tabs/home.dart';
+import './tabs/message.dart';
+import './tabs/profile.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -15,12 +20,12 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
-  final List<Widget> _children = [];
+  final List<Widget> _children = [HomeTab(), MessageTab(), ProfileTab()];
 
-  String appName = "ខ្នាតគម្ពី";
+  String appName = "ខ្នាតគម្ពីរ";
   double drawerFontSize = 18.0;
 
-  int onTabTapped(int index) {
+  void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;
     });
@@ -69,10 +74,7 @@ class _MyAppState extends State<MyApp> {
                     fontSize: drawerFontSize,
                   ),
                 ),
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AboutPage()));
-                },
+                onTap: () {},
               ),
               ListTile(
                 leading: Icon(Icons.settings),
@@ -98,35 +100,30 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        body: ProductManager(),
+        body: _children[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+          onTap: onTabTapped,
           currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               title: Text(
                 'ទំព័រដើម',
-                style: TextStyle(
-                  fontFamily: "KhmerBattambangBold"
-                ),
+                style: TextStyle(fontFamily: "KhmerBattambangBold"),
               ),
             ),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.mail),
-              title: new Text(
-                "ផ្ញើរសារ",
-                style: TextStyle(
-                  fontFamily: "KhmerBattambangBold"
-                ),
+              icon: Icon(Icons.mail),
+              title: Text(
+                "បញ្ជូនសារ",
+                style: TextStyle(fontFamily: "KhmerBattambangBold"),
               ),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
               title: Text(
                 "រូបតំណាង",
-                style: TextStyle(
-                  fontFamily: "KhmerBattambangBold"
-                ),
+                style: TextStyle(fontFamily: "KhmerBattambangBold"),
               ),
             ),
           ],
