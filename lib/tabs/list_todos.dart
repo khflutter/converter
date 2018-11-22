@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:khunit/pages/contact.dart';
+import 'package:khunit/models/todo.dart';
+import 'list_todos_item.dart';
 
-class Todo {
-  final String title;
-  final String description;
-
-  Todo(this.title, this.description);
-}
-
-class userInput extends StatelessWidget {
-  String _inputValue = "";
-
+class ListTodos extends StatelessWidget {
   List<Todo> todos = [];
-  userInput(this.todos);
+  // ListTodos(this.todos);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +17,7 @@ class userInput extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => DetailScreen(todo: todos[index]),
+                builder: (context) => ListTodosItem(todo: todos[index]),
               ),
             );
           },

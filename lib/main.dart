@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:khunit/models/todo.dart';
 
 import './product_manager.dart';
 import './pages/about.dart';
 
 // Tabs
 import './tabs/home.dart';
+import './tabs/list_todos.dart';
 import './tabs/message.dart';
 import './tabs/profile.dart';
-
-// User Contorl
-import './seactions/input.dart';
+import './tabs/list_todos_item.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +23,9 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
-  final List<Widget> _children = [HomeTab(), MessageTab(), ProfileTab()];
+  List<Todo> todos = [];
+
+  final List<Widget> _children = [HomeTab(), ListTodos(), ProfileTab()];
 
   String appName = "ខ្នាតគម្ពីរ";
   double drawerFontSize = 18.0;
@@ -66,11 +68,11 @@ class _MyAppState extends State<MyApp> {
                 ),
                 onTap: () {
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AboutPage(),
-                    ),
-                  );
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ListTodosItem(todo: Todo("hello", "hello")),
+                      ),
+                    );
                 },
               ),
               ListTile(
@@ -108,8 +110,7 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        // body: _children[_currentIndex],
-        body: userInput(),
+        body: _children[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           onTap: onTabTapped,
           currentIndex: _currentIndex,
@@ -129,9 +130,9 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.add_circle),
               title: Text(
-                "រូបតំណាង",
+                "Add New",
                 style: TextStyle(fontFamily: "KhmerBattambangBold"),
               ),
             ),
