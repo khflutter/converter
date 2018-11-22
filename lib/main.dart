@@ -8,6 +8,9 @@ import './tabs/home.dart';
 import './tabs/message.dart';
 import './tabs/profile.dart';
 
+// User Contorl
+import './seactions/input.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -62,7 +65,12 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 onTap: () {
-                  print("Clicked on Tap");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AboutPage(),
+                    ),
+                  );
                 },
               ),
               ListTile(
@@ -100,7 +108,8 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        body: _children[_currentIndex],
+        // body: _children[_currentIndex],
+        body: userInput(),
         bottomNavigationBar: BottomNavigationBar(
           onTap: onTabTapped,
           currentIndex: _currentIndex,
