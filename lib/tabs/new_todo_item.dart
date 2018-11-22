@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 import 'package:khunit/models/todo.dart';
 import 'list_todos_item.dart';
+import 'list_todos.dart';
 import './../pages/about.dart';
 
-class ProfileTab extends StatefulWidget {
+class NewTodoItemTab extends StatefulWidget {
   @override
-  _ProfileTabState createState() => _ProfileTabState();
+  _NewTodoItemTabState createState() => _NewTodoItemTabState();
 }
 
-class _ProfileTabState extends State<ProfileTab> {
+class _NewTodoItemTabState extends State<NewTodoItemTab> {
   List<Todo> todos = [];
   String _title = "";
   String _description = "";
@@ -24,6 +28,7 @@ class _ProfileTabState extends State<ProfileTab> {
       child: Column(
         children: <Widget>[
           TextField(
+            decoration: InputDecoration(labelText: "Title"),
             controller: _titleCtrl,
             keyboardType: TextInputType.text,
             onChanged: (String value) {
@@ -36,6 +41,8 @@ class _ProfileTabState extends State<ProfileTab> {
             height: 10.0,
           ),
           TextField(
+            decoration: InputDecoration(labelText: "Description"),
+            maxLines: 8,
             controller: _descCtrl,
             onChanged: (String value) {
               setState(() {
@@ -46,19 +53,34 @@ class _ProfileTabState extends State<ProfileTab> {
           Flexible(
             child: RaisedButton(
               onPressed: () {
-                todos.add(new Todo(this._title, this._description));
+                Todo newTodo = new Todo(this._title, this._description);
+                todos.add(newTodo);
                 _titleCtrl.clear();
                 _descCtrl.clear();
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ListTodos(todos)));
               },
               child: Text("Add New Todo"),
             ),
+          ),
+          RaisedButton(
+            child: Text("Fetch Data"),
+            onPressed: () {
+              http.get('http://127.0.0.1:8000/')
+              .then((http.Response response) {
+                json.decode(response.body).forEach((ele) {
+                  todos.add(Todo(ele['name'], ele['email']));
+                });
+              });
+            },
           ),
           RaisedButton(
             onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => AboutPage("About Us", "Custom Description..."),
+                    builder: (context) =>
+                        AboutPage("About Us", "Custom Description..."),
                   ));
             },
             child: Text("About Us"),

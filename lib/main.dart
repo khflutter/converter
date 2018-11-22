@@ -4,8 +4,9 @@ import 'package:khunit/models/todo.dart';
 // Tabs
 import './tabs/home.dart';
 import './tabs/list_todos.dart';
-import './tabs/profile.dart';
+import './tabs/new_todo_item.dart';
 import './tabs/list_todos_item.dart';
+import 'tabs/message.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
   List<Todo> todos = [];
 
-  final List<Widget> _children = [HomeTab(), ListTodos(), ProfileTab()];
+  final List<Widget> _children = [HomeTab(), MessageTab(), NewTodoItemTab()];
 
   String appName = "ខ្នាតគម្ពីរ";
   double drawerFontSize = 18.0;
@@ -115,14 +116,14 @@ class _MyAppState extends State<MyApp> {
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               title: Text(
-                'ទំព័រដើម',
+                'Home',
                 style: TextStyle(fontFamily: "KhmerBattambangBold"),
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.mail),
+              icon: Icon(Icons.featured_play_list),
               title: Text(
-                "បញ្ជូនសារ",
+                "My Tasks",
                 style: TextStyle(fontFamily: "KhmerBattambangBold"),
               ),
             ),
