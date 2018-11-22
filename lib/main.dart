@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:khunit/models/todo.dart';
 
-import './product_manager.dart';
-import './pages/about.dart';
-
 // Tabs
 import './tabs/home.dart';
 import './tabs/list_todos.dart';
-import './tabs/message.dart';
 import './tabs/profile.dart';
 import './tabs/list_todos_item.dart';
 
@@ -68,11 +64,12 @@ class _MyAppState extends State<MyApp> {
                 ),
                 onTap: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ListTodosItem(todo: Todo("hello", "hello")),
-                      ),
-                    );
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          ListTodosItem(todo: Todo("hello", "hello")),
+                    ),
+                  );
                 },
               ),
               ListTile(
