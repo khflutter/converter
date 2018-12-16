@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigationBarDefault extends StatelessWidget {
-  int _currentIndex;
+class MyTabbar extends StatefulWidget {
+  _MyTabbarState createState() => _MyTabbarState();
+}
 
-  BottomNavigationBarDefault(this._currentIndex);
-
+class _MyTabbarState extends State<MyTabbar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      currentIndex: _currentIndex,
+      // onTap: onTabTapped,
+      // currentIndex: _currentIndex,
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           title: Text(
-            'ទំព័រដើម',
+            'Home',
             style: TextStyle(fontFamily: "KhmerBattambangBold"),
           ),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.mail),
+          icon: Icon(Icons.featured_play_list),
           title: Text(
-            "បញ្ជូនសារ",
+            "My Tasks",
             style: TextStyle(fontFamily: "KhmerBattambangBold"),
           ),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
+          icon: Icon(Icons.add_circle),
           title: Text(
-            "រូបតំណាង",
+            "Add New",
             style: TextStyle(fontFamily: "KhmerBattambangBold"),
           ),
         ),
