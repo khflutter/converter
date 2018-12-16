@@ -19,6 +19,23 @@ class _BmiScreenState extends State<BmiScreen> {
     setState(() {
       this._result = (this._height) / (this._weight * this._weight);
     });
+    showDialog(context: context, builder: (context) => AlertDialog(
+      title: Text("Hello"),
+      content: Text(this._result.toString()),
+      actions: <Widget>[
+        RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text(
+            "Ok",
+            style: TextStyle(
+              color: Colors.black
+            ),
+          ),
+        ),
+      ],
+    ));
   }
 
   @override
@@ -28,7 +45,7 @@ class _BmiScreenState extends State<BmiScreen> {
         title: Text("BMI"),
       ),
       body: Container(
-        color: Color(0xFFDDDDDD),
+        color: Color(0xFFFFFFFF),
         padding: EdgeInsets.all(15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
