@@ -28,7 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: Container(
           child: Center(
-            child: Text(appName),
+            child: Text(
+              appName,
+              style: TextStyle(
+                fontFamily: "khmerM1"
+              ),
+            ),
           ),
         ),
       ),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:khunit/pages/about.dart';
+import 'package:khunit/pages/settings.dart';
 
 class MyDrawer extends StatefulWidget {
   _MyDrawerState createState() => _MyDrawerState();
 }
 
 class _MyDrawerState extends State<MyDrawer> {
-   String appName = "ខ្នាតគម្ពីរ";
+  String appName = "ខ្នាតគម្ពីរ";
   double drawerFontSize = 18.0;
 
   @override
@@ -45,7 +47,13 @@ class _MyDrawerState extends State<MyDrawer> {
                 fontSize: drawerFontSize,
               ),
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutScreen()),
+              );
+            },
           ),
           ListTile(
             leading: Icon(Icons.settings),
@@ -57,7 +65,11 @@ class _MyDrawerState extends State<MyDrawer> {
               ),
             ),
             onTap: () {
-              print("Clicked on Tap");
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsScreen()),
+              );
             },
           )
         ],
