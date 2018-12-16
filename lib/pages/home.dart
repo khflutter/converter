@@ -12,10 +12,20 @@ class _HomeScreenState extends State<HomeScreen> {
   double drawerFontSize = 18.0;
 
   List<Post> posts = [
-    Post(1, "Hello Flutter", "lorem text here"),
-    Post(2, "Nice Flutter", "lorem text here"),
-    Post(3, "Mobile Flutter", "lorem text here"),
-    Post(4, "App Flutter", "lorem text here"),
+    Post(1, "ការបំបែកប្រវែង",
+        "មកមើលរូបថតចាក់ពណ៌ បង្ហាញទិដ្ឋភាពសង្គ្រាមកូរ៉េ កម្របានឃើញពីមុន"),
+    Post(2, "ការបំបែកទំហំ",
+        "មកមើលរូបថតចាក់ពណ៌ បង្ហាញទិដ្ឋភាពសង្គ្រាមកូរ៉េ កម្របានឃើញពីមុន"),
+    Post(3, "ការបំបែកផ្ទៃ",
+        "មកមើលរូបថតចាក់ពណ៌ បង្ហាញទិដ្ឋភាពសង្គ្រាមកូរ៉េ កម្របានឃើញពីមុន"),
+    Post(4, "ការបំបែកទង្ងន់",
+        "មកមើលរូបថតចាក់ពណ៌ បង្ហាញទិដ្ឋភាពសង្គ្រាមកូរ៉េ កម្របានឃើញពីមុន"),
+    Post(5, "ការបំបែកមាឌ",
+        "មកមើលរូបថតចាក់ពណ៌ បង្ហាញទិដ្ឋភាពសង្គ្រាមកូរ៉េ កម្របានឃើញពីមុន"),
+    Post(6, "ការបំបែកកម្ពស់",
+        "មកមើលរូបថតចាក់ពណ៌ បង្ហាញទិដ្ឋភាពសង្គ្រាមកូរ៉េ កម្របានឃើញពីមុន"),
+    Post(7, "ការបំបែកពេល",
+        "មកមើលរូបថតចាក់ពណ៌ បង្ហាញទិដ្ឋភាពសង្គ្រាមកូរ៉េ កម្របានឃើញពីមុន"),
   ];
 
   @override
@@ -43,17 +53,33 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 ListTile(
                   leading: CircleAvatar(
-                    backgroundColor: Colors.green,
+                    radius: 30.0,
+                    backgroundColor: Theme.of(context).primaryColor,
                     child: Text(
                       this.posts[index].title[0].toString().toUpperCase(),
+                      style: TextStyle(
+                        fontFamily: "khmerM1",
+                        fontSize: 22.0,
+                        color: Color(0xFFFFFFFF),
+                      ),
                     ),
                   ),
-                  title: Text(this.posts[index].title),
-                  subtitle: Text(this.posts[index].description),
+                  title: Text(
+                    this.posts[index].title,
+                    style: TextStyle(fontFamily: 'KhmerBattambangBold'),
+                  ),
+                  subtitle: Text(
+                    this.posts[index].description,
+                    style: TextStyle(
+                      fontFamily: 'KhmerBattambangBold',
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ShowScreen(this.posts[index])),
+                      MaterialPageRoute(
+                          builder: (context) => ShowScreen(this.posts[index])),
                     );
                   },
                 ),

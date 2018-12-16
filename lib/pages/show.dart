@@ -11,11 +11,18 @@ class _ShowScreenState extends State<ShowScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.Post.title),
+        title: Text(
+          widget.Post.title,
+          style: TextStyle(fontFamily: 'KhmerBattambangBold'),
+        ),
       ),
       body: Container(
-        child: Center(
-          child: Text(widget.Post.description),
+        padding: EdgeInsets.all(15.0),
+        child: Text(
+          widget.Post.description,
+          style: TextStyle(
+            fontFamily: 'KhmerBattambangBold',
+          ),
         ),
       ),
     );
