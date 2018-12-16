@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:khunit/pages/about.dart';
+import 'package:khunit/pages/bmi.dart';
 import 'package:khunit/pages/settings.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -9,7 +10,7 @@ class MyDrawer extends StatefulWidget {
 class _MyDrawerState extends State<MyDrawer> {
   String appName = "ខ្នាតគម្ពីរ";
   double drawerFontSize = 18.0;
-
+  
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -52,6 +53,23 @@ class _MyDrawerState extends State<MyDrawer> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => AboutScreen()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.move_to_inbox),
+            title: Text(
+              "BMI",
+              style: TextStyle(
+                fontFamily: "KhmerBattambangBold",
+                fontSize: drawerFontSize,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => BmiScreen()),
               );
             },
           ),
