@@ -44,6 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
               fontFamily: "khmerM1",
             ),
           ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {
+                print("Hello World");
+              },
+            ),
+          ],
         ),
         body: ListView.builder(
           itemCount: posts.length,
