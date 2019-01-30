@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:khunit/models/post.dart';
 
 class ShowScreen extends StatefulWidget {
-  final Post;
-  ShowScreen(this.Post);
+  final Post post;
+
+  const ShowScreen({Key key, this.post}) : super(key: key);
   _ShowScreenState createState() => _ShowScreenState();
 }
 
@@ -12,14 +14,14 @@ class _ShowScreenState extends State<ShowScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          widget.Post.title,
+          widget.post.title,
           style: TextStyle(fontFamily: 'KhmerBattambangBold'),
         ),
       ),
       body: Container(
         padding: EdgeInsets.all(15.0),
         child: Text(
-          widget.Post.description,
+          widget.post.description,
           style: TextStyle(
             fontFamily: 'KhmerBattambangBold',
           ),
