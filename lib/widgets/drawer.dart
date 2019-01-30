@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:khunit/pages/about.dart';
-import 'package:khunit/pages/bmi.dart';
+import 'package:khunit/config/kh_unit_env.dart';
 import 'package:khunit/pages/settings.dart';
 
 class MyDrawer extends StatefulWidget {
   _MyDrawerState createState() => _MyDrawerState();
 }
 
-class _MyDrawerState extends State<MyDrawer> {
-  String appName = "ខ្នាតគម្ពីរ";
-  double drawerFontSize = 18.0;
-  
+class _MyDrawerState extends State<MyDrawer> {  
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -19,10 +15,9 @@ class _MyDrawerState extends State<MyDrawer> {
           AppBar(
             automaticallyImplyLeading: false,
             title: Text(
-              appName,
+              KhUnitEnv.appName,
               style: TextStyle(
                 fontFamily: "khmerM1",
-                fontSize: drawerFontSize,
               ),
             ),
           ),
@@ -32,45 +27,10 @@ class _MyDrawerState extends State<MyDrawer> {
               "ទំព័រដើម",
               style: TextStyle(
                 fontFamily: "KhmerBattambangBold",
-                fontSize: drawerFontSize,
               ),
             ),
             onTap: () {
               Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.info_outline),
-            title: Text(
-              "អំពីពួកយើង",
-              style: TextStyle(
-                fontFamily: "KhmerBattambangBold",
-                fontSize: drawerFontSize,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AboutScreen()),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.move_to_inbox),
-            title: Text(
-              "BMI",
-              style: TextStyle(
-                fontFamily: "KhmerBattambangBold",
-                fontSize: drawerFontSize,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => BmiScreen()),
-              );
             },
           ),
           ListTile(
@@ -79,7 +39,6 @@ class _MyDrawerState extends State<MyDrawer> {
               "ការកំណត់",
               style: TextStyle(
                 fontFamily: "KhmerBattambangBold",
-                fontSize: drawerFontSize,
               ),
             ),
             onTap: () {
