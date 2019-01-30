@@ -30,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Color(0xFF484B5B),
       ),
@@ -44,14 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
               fontFamily: "khmerM1",
             ),
           ),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {
-                print("Hello World");
-              },
-            ),
-          ],
         ),
         body: ListView.builder(
           itemCount: posts.length,
