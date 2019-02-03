@@ -12,6 +12,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "គម្ពីរ",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Color(0xFF484B5B),
