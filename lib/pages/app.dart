@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:khunit/config/kh_unit_env.dart';
 import 'package:khunit/pages/home.dart';
-import 'package:khunit/widgets/drawer.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import '../localizations.dart';
 
 class App extends StatefulWidget {
   _AppState createState() => _AppState();
 }
 
 class _AppState extends State<App> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        AppLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: [Locale("en"), Locale("kh")],
       title: "គម្ពីរ",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

@@ -1,0 +1,14 @@
+{
+  "@@last_modified": "2019-02-03T17:57:25.617929",
+  "title": "គម្ពីរ",
+  "@title": {
+    "description": "The application title",
+    "type": "text",
+    "placeholders": {}
+  },
+  "hello": "សួស្តី",
+  "@hello": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
