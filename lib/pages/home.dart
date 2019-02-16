@@ -35,7 +35,9 @@ class _HomeState extends State<Home> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => CalculateScreen(),
+                    builder: (context) => CalculateScreen(
+                      title: menuItem.title,
+                    ),
                   ),
                 );
               },

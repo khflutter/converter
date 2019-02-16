@@ -3,6 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:khunit/config/kh_unit_env.dart';
 
 class CalculateScreen extends StatefulWidget {
+  final String title;
+
+  const CalculateScreen({Key key, this.title}) : super(key: key);
   _CalculateScreenState createState() => _CalculateScreenState();
 }
 
@@ -44,7 +47,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
       backgroundColor: Env.primaryColor,
       appBar: AppBar(
         elevation: 0.0,
-        title: Text("Calculate"),
+        title: Text(widget.title),
       ),
       body: Container(
         child: SingleChildScrollView(
@@ -64,89 +67,109 @@ class _CalculateScreenState extends State<CalculateScreen> {
                     color: Env.secondaryColor,
                     child: Container(
                       padding: EdgeInsets.all(16.0),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        color: Env.secondaryColor,
+                      ),
                       child: Form(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Material(
-                              elevation: 4.0,
-                              color: Env.secondaryLightColor,
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Container(
-                                // padding: EdgeInsets.all(8.0),
-                                child: TextFormField(
-                                  initialValue: "0.00",
-                                  keyboardType: TextInputType.number,
-                                  style: TextStyle(
-                                    fontFamily: "Crasng",
-                                    fontSize: 32,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    border: InputBorder.none,
-                                  ),
-                                  textDirection: TextDirection.rtl,
+                            Container(
+                              child: Text(
+                                "Option 01",
+                                style: TextStyle(
+                                  color: Colors.white70,
                                 ),
                               ),
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width,
+                              width: double.infinity,
+                              height: 80.0,
                               padding: EdgeInsets.symmetric(vertical: 16.0),
-                              child: Material(
-                                child: InkWell(
-                                  child: DropdownButtonHideUnderline(
-                                    child: ButtonTheme(
-                                      alignedDropdown: true,
-                                      padding: EdgeInsets.all(16.0),
-                                      child: DropdownButton(
-                                        style: TextStyle(
-                                          fontFamily: "Crasng",
-                                          color: Colors.black,
-                                        ),
-                                        value: _currentCity,
-                                        items: _dropDownMenuItems,
-                                        onChanged: changedDropDownItem,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: List.generate(100, (item) {
+                                  return Container(
+                                    height: 60.0,
+                                    padding: EdgeInsets.only(
+                                      left: 26.0,
+                                      right: 26.0,
+                                    ),
+                                    margin: EdgeInsets.only(
+                                      right: 16.0,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.circular(100.0),
+                                      gradient: LinearGradient(
+                                        begin: Alignment(0, 1),
+                                        end: Alignment(-1, 0),
+                                        colors: [
+                                          Color(0xFF00849e),
+                                          Color(0xFF22aea4),
+                                        ],
                                       ),
                                     ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.symmetric(vertical: 8.0),
-                              child: Center(
-                                child: Icon(
-                                  FontAwesomeIcons.syncAlt,
-                                  color: Colors.white,
-                                  size: 32.0,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              padding: EdgeInsets.symmetric(vertical: 16.0),
-                              child: Material(
-                                child: InkWell(
-                                  child: DropdownButtonHideUnderline(
-                                    child: ButtonTheme(
-                                      alignedDropdown: true,
-                                      padding: EdgeInsets.all(16.0),
-                                      child: DropdownButton(
+                                    child: Center(
+                                      child: Text(
+                                        "Sergei Gurov",
                                         style: TextStyle(
-                                          fontFamily: "Crasng",
-                                          color: Colors.black,
+                                          color: Colors.white70,
                                         ),
-                                        value: _currentCity,
-                                        items: _dropDownMenuItems,
-                                        onChanged: changedDropDownItem,
                                       ),
                                     ),
-                                  ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                            Container(
+                              child: Text(
+                                "Option 01",
+                                style: TextStyle(
+                                  color: Colors.white70,
                                 ),
+                              ),
+                            ),
+                            Container(
+                              width: double.infinity,
+                              height: 80.0,
+                              padding: EdgeInsets.symmetric(vertical: 16.0),
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: List.generate(100, (item) {
+                                  return Container(
+                                    height: 60.0,
+                                    padding: EdgeInsets.only(
+                                      left: 26.0,
+                                      right: 26.0,
+                                    ),
+                                    margin: EdgeInsets.only(
+                                      right: 16.0,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.circular(100.0),
+                                      gradient: LinearGradient(
+                                        begin: Alignment(0, 1),
+                                        end: Alignment(-1, 0),
+                                        colors: [
+                                          Color(0xFF00849e),
+                                          Color(0xFF22aea4),
+                                        ],
+                                      ),
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        "KPc MIw ojN Rym p6V QLY",
+                                        style: TextStyle(
+                                          color: Colors.white70,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
                               ),
                             ),
                           ],
@@ -155,19 +178,51 @@ class _CalculateScreenState extends State<CalculateScreen> {
                     ),
                   ),
                 ),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(25.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100.0),
+                      gradient: LinearGradient(
+                        begin: Alignment(0, -1),
+                        end: Alignment(0, 1),
+                        colors: [
+                          Color(0xFF645feb),
+                          Color(0xFF6135c6),
+                        ],
+                      ),
+                    ),
+                    child: Icon(
+                      FontAwesomeIcons.syncAlt,
+                      size: 20.0,
+                      color: Colors.white70,
+                    ),
+                  ),
+                ),
                 Container(
-                  padding: EdgeInsets.all(16.0),
                   width: MediaQuery.of(context).size.width,
-                  child: RaisedButton(
-                    padding: EdgeInsets.symmetric(vertical: 10.0),
-                    color: Env.secondaryColor,
-                    onPressed: () {},
+                  height: 400.0,
+                  margin: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8.0),
+                    gradient: LinearGradient(
+                      begin: Alignment(1, 0),
+                      end: Alignment(-1, 0),
+                      colors: [
+                        Color(0xFF645feb),
+                        Color(0xFF6135c6),
+                      ],
+                    ),
+                  ),
+                  child: Center(
                     child: Text(
-                      "Convert".toUpperCase(),
+                      "700,000,000.00",
                       style: TextStyle(
-                        color: Env.secondaryTextColor,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
+                        fontFamily: "Crasng",
+                        color: Colors.white,
+                        fontSize: 32.0,
                       ),
                     ),
                   ),
