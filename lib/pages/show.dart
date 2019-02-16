@@ -18,7 +18,7 @@ class _ShowScreenState extends State<ShowScreen> {
 
   Locale _activeLocale;
 
-  void initState() { 
+  void initState() {
     super.initState();
     setState(() {
       _activeLocale = _locales[0];
@@ -56,8 +56,9 @@ class _ShowScreenState extends State<ShowScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: _locales.map((Locale locale) {
                       return RaisedButton(
-                        color: ((){
-                          if (_activeLocale.languageCode == locale.languageCode) {
+                        color: (() {
+                          if (_activeLocale.languageCode ==
+                              locale.languageCode) {
                             return Colors.blue;
                           } else {
                             return Colors.grey;

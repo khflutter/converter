@@ -11,7 +11,7 @@ class _IsLoadingState extends State<IsLoading> {
   @override
   Widget build(BuildContext context) {
     return (() {
-      if (widget.isLoding==true) {
+      if (widget.isLoding == true) {
         return Stack(
           children: [
             Opacity(

@@ -28,6 +28,7 @@ dependencies:
   font_awesome_flutter: ^8.2.0
   flutter_launcher_icons: ^0.7.0
   country_icons: ^1.1.0
+  flutter_slidable: ^0.4.9
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,14 @@ flutter:
     - family: KhmerBattambangBold
       fonts:
         - asset: assets/fonts/BattambangBold.ttf
+
+    - family: Crasng
+      fonts:
+        - asset: assets/fonts/Crasng.ttf
+    
+    - family: Crasns
+      fonts:
+        - asset: assets/fonts/Crasns.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

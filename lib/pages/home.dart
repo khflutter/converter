@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:khunit/config/kh_unit_env.dart';
 import 'package:khunit/models/post.dart';
+import 'package:khunit/pages/calculate.dart';
 import 'package:khunit/pages/show.dart';
 import 'package:khunit/widgets/drawer.dart';
 
@@ -12,61 +13,52 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Env.primaryColor,
       appBar: AppBar(
         title: Text(KhUnitEnv.appName),
+        elevation: 0.0,
       ),
-      drawer: MyDrawer(),
+      // drawer: MyDrawer(),
       body: GridView.count(
         crossAxisCount: 2,
-        padding: const EdgeInsets.all(4.0),
-        mainAxisSpacing: 4.0,
-        crossAxisSpacing: 4.0,
+        padding: const EdgeInsets.all(16.0),
+        mainAxisSpacing: 16.0,
+        crossAxisSpacing: 16.0,
         children: KhUnitEnv.meunItems.map((MenuItem menuItem) {
-          return GestureDetector(
-            child: Material(
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ShowScreen(
-                            post: Post(
-                              menuItem.id,
-                              menuItem.title,
-                              menuItem.title,
-                            ),
-                          ),
-                    ),
-                  );
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Color(0xffE1E2E1),
-                    ),
-                    color: Color(0xffE1E2E1),
+          return Material(
+            elevation: 1.0,
+            color: Env.secondaryColor,
+            borderRadius: BorderRadius.circular(8.0),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(8.0),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CalculateScreen(),
                   ),
-                  child: Center(
-                      child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        menuItem.icon,
-                        color: Color(0xff484b5b),
+                );
+              },
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      menuItem.icon,
+                      color: Env.secondaryTextColor,
+                    ),
+                    SizedBox(
+                      height: 16.0,
+                    ),
+                    Text(
+                      menuItem.title,
+                      style: TextStyle(
+                        fontFamily: KhUnitEnv.fontFamilyTitle,
+                        color: Env.secondaryTextColor,
+                        fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                      Text(
-                        menuItem.title,
-                        style: TextStyle(
-                          fontFamily: KhUnitEnv.fontFamilyTitle,
-                          color: Color(0xff484b5b),
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  )),
+                    ),
+                  ],
                 ),
               ),
             ),

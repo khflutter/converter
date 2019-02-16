@@ -6,7 +6,7 @@ class MyDrawer extends StatefulWidget {
   _MyDrawerState createState() => _MyDrawerState();
 }
 
-class _MyDrawerState extends State<MyDrawer> {  
+class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(

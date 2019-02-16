@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:khunit/config/kh_unit_env.dart';
 import 'package:khunit/pages/home.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+// import 'package:khunit/pages/items.dart';
 import '../localizations.dart';
 
 class App extends StatefulWidget {
