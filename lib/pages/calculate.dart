@@ -64,10 +64,12 @@ class _CalculateScreenState extends State<CalculateScreen> {
                           children: <Widget>[
                             Container(
                               child: Text(
-                                "ធ្វើការប្តូរពី",
+                                "ធ្វើការប្តូរពី៖",
                                 style: TextStyle(
                                   color: Colors.white70,
                                   fontFamily: "KhmerBattambangBold",
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18.0,
                                 ),
                               ),
                             ),
@@ -141,10 +143,11 @@ class _CalculateScreenState extends State<CalculateScreen> {
                             ),
                             Container(
                               child: Text(
-                                "ទៅជា",
+                                "ទៅជា៖",
                                 style: TextStyle(
                                   color: Colors.white70,
                                   fontFamily: "KhmerBattambangBold",
+                                  fontSize: 18.0,
                                 ),
                               ),
                             ),
