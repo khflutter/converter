@@ -3,7 +3,6 @@ import 'package:khunit/config/env.dart';
 import 'package:khunit/database/db.dart';
 import 'package:khunit/models/unit.dart';
 import 'package:khunit/pages/calculate.dart';
-// import 'package:khunit/widgets/drawer.dart';
 
 class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
@@ -36,7 +35,7 @@ class _HomeState extends State<Home> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => CalculateScreen(
-                          title: unit.name,
+                          unit: unit,
                         ),
                   ),
                 );

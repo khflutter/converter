@@ -1,44 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:khunit/config/env.dart';
+import 'package:khunit/models/option.dart';
+import 'package:khunit/models/unit.dart';
 
 class CalculateScreen extends StatefulWidget {
-  final String title;
+  final Unit unit;
 
-  const CalculateScreen({Key key, this.title}) : super(key: key);
+  const CalculateScreen({Key key, this.unit}) : super(key: key);
   _CalculateScreenState createState() => _CalculateScreenState();
 }
 
 class _CalculateScreenState extends State<CalculateScreen> {
-  List _cities = [
-    "Cluj-Napoca",
-    "Bucuresti",
-    "Timisoara",
-    "Brasov",
-    "Constanta"
-  ];
-  List<DropdownMenuItem<String>> _dropDownMenuItems;
-  String _currentCity;
+  Option _fromOption;
+  Option _toOption;
 
   @override
   void initState() {
     super.initState();
-    _dropDownMenuItems = getDropDownMenuItems();
-    _currentCity = _dropDownMenuItems[0].value;
-  }
-
-  List<DropdownMenuItem<String>> getDropDownMenuItems() {
-    List<DropdownMenuItem<String>> items = List();
-    for (String city in _cities) {
-      items.add(DropdownMenuItem(value: city, child: Text(city)));
+    if (widget.unit != null &&
+        widget.unit.option != null &&
+        widget.unit.option.length > 0) {
+      _fromOption = widget.unit.option[0];
+      _toOption = widget.unit.option[0];
+      print(_fromOption.id);
     }
-    return items;
-  }
-
-  void changedDropDownItem(String selectedCity) {
-    setState(() {
-      _currentCity = selectedCity;
-    });
   }
 
   @override
@@ -47,7 +33,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
       backgroundColor: Env.primaryColor,
       appBar: AppBar(
         elevation: 0.0,
-        title: Text(widget.title),
+        title: Text(widget.unit.name),
       ),
       body: Container(
         child: SingleChildScrollView(
@@ -78,9 +64,10 @@ class _CalculateScreenState extends State<CalculateScreen> {
                           children: <Widget>[
                             Container(
                               child: Text(
-                                "Option 01",
+                                "ធ្វើការប្តូរពី",
                                 style: TextStyle(
                                   color: Colors.white70,
+                                  fontFamily: "KhmerBattambangBold",
                                 ),
                               ),
                             ),
@@ -90,33 +77,61 @@ class _CalculateScreenState extends State<CalculateScreen> {
                               padding: EdgeInsets.symmetric(vertical: 16.0),
                               child: ListView(
                                 scrollDirection: Axis.horizontal,
-                                children: List.generate(100, (item) {
-                                  return Container(
-                                    height: 60.0,
-                                    padding: EdgeInsets.only(
-                                      left: 26.0,
-                                      right: 26.0,
-                                    ),
-                                    margin: EdgeInsets.only(
-                                      right: 16.0,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(100.0),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0, 1),
-                                        end: Alignment(-1, 0),
-                                        colors: [
-                                          Color(0xFF00849e),
-                                          Color(0xFF22aea4),
-                                        ],
+                                children:
+                                    widget.unit.option.map((Option option) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _fromOption = option;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 60.0,
+                                      padding: EdgeInsets.only(
+                                        left: 26.0,
+                                        right: 26.0,
                                       ),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "Sergei Gurov",
-                                        style: TextStyle(
-                                          color: Colors.white70,
+                                      margin: EdgeInsets.only(
+                                        right: 16.0,
+                                      ),
+                                      decoration: (() {
+                                        if (_fromOption != null &&
+                                            _fromOption.id == option.id) {
+                                          return BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(100.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(0, 1),
+                                              end: Alignment(-1, 0),
+                                              colors: [
+                                                Color(0xFF645feb),
+                                                Color(0xFF6135c6),
+                                              ],
+                                            ),
+                                          );
+                                        } else {
+                                          return BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(100.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(0, 1),
+                                              end: Alignment(-1, 0),
+                                              colors: [
+                                                Color(0xFF00849e),
+                                                Color(0xFF22aea4),
+                                              ],
+                                            ),
+                                          );
+                                        }
+                                      })(),
+                                      child: Center(
+                                        child: Text(
+                                          option.name,
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontFamily: "KhmerBattambangBold",
+                                            fontSize: 18.0,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -126,9 +141,10 @@ class _CalculateScreenState extends State<CalculateScreen> {
                             ),
                             Container(
                               child: Text(
-                                "Option 01",
+                                "ទៅជា",
                                 style: TextStyle(
                                   color: Colors.white70,
+                                  fontFamily: "KhmerBattambangBold",
                                 ),
                               ),
                             ),
@@ -138,33 +154,61 @@ class _CalculateScreenState extends State<CalculateScreen> {
                               padding: EdgeInsets.symmetric(vertical: 16.0),
                               child: ListView(
                                 scrollDirection: Axis.horizontal,
-                                children: List.generate(100, (item) {
-                                  return Container(
-                                    height: 60.0,
-                                    padding: EdgeInsets.only(
-                                      left: 26.0,
-                                      right: 26.0,
-                                    ),
-                                    margin: EdgeInsets.only(
-                                      right: 16.0,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.circular(100.0),
-                                      gradient: LinearGradient(
-                                        begin: Alignment(0, 1),
-                                        end: Alignment(-1, 0),
-                                        colors: [
-                                          Color(0xFF00849e),
-                                          Color(0xFF22aea4),
-                                        ],
+                                children:
+                                    widget.unit.option.map((Option option) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _toOption = option;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 60.0,
+                                      padding: EdgeInsets.only(
+                                        left: 26.0,
+                                        right: 26.0,
                                       ),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        "KPc MIw ojN Rym p6V QLY",
-                                        style: TextStyle(
-                                          color: Colors.white70,
+                                      margin: EdgeInsets.only(
+                                        right: 16.0,
+                                      ),
+                                      decoration: (() {
+                                        if (_toOption != null &&
+                                            _toOption.id == option.id) {
+                                          return BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(100.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(0, 1),
+                                              end: Alignment(-1, 0),
+                                              colors: [
+                                                Color(0xFF645feb),
+                                                Color(0xFF6135c6),
+                                              ],
+                                            ),
+                                          );
+                                        } else {
+                                          return BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(100.0),
+                                            gradient: LinearGradient(
+                                              begin: Alignment(0, 1),
+                                              end: Alignment(-1, 0),
+                                              colors: [
+                                                Color(0xFF00849e),
+                                                Color(0xFF22aea4),
+                                              ],
+                                            ),
+                                          );
+                                        }
+                                      })(),
+                                      child: Center(
+                                        child: Text(
+                                          option.name,
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontSize: 18.0,
+                                            fontFamily: "KhmerBattambangBold",
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -202,9 +246,8 @@ class _CalculateScreenState extends State<CalculateScreen> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 400.0,
                   margin: EdgeInsets.all(16.0),
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
+                  padding: EdgeInsets.symmetric(vertical: 32.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
                     gradient: LinearGradient(
