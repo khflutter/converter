@@ -23,7 +23,7 @@ class _AppState extends State<App> {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Color(0xFF484B5B),
-        fontFamily: KhUnitEnv.fontFamilyTitle,
+        fontFamily: Env.fontFamilyTitle,
       ),
       home: Home(),
     );

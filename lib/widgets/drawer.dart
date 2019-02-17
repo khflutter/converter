@@ -14,7 +14,7 @@ class _MyDrawerState extends State<MyDrawer> {
           AppBar(
             automaticallyImplyLeading: false,
             title: Text(
-              KhUnitEnv.appName,
+              Env.appName,
               style: TextStyle(
                 fontFamily: "khmerM1",
               ),
