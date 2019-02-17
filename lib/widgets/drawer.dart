@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:khunit/config/kh_unit_env.dart';
-import 'package:khunit/pages/settings.dart';
+import 'package:khunit/config/env.dart';
 
 class MyDrawer extends StatefulWidget {
   _MyDrawerState createState() => _MyDrawerState();
@@ -33,22 +32,6 @@ class _MyDrawerState extends State<MyDrawer> {
               Navigator.pop(context);
             },
           ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text(
-              "ការកំណត់",
-              style: TextStyle(
-                fontFamily: "KhmerBattambangBold",
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SettingsScreen()),
-              );
-            },
-          )
         ],
       ),
     );

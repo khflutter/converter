@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:khunit/config/kh_unit_env.dart';
-import 'package:khunit/models/post.dart';
+import 'package:khunit/config/env.dart';
 import 'package:khunit/pages/calculate.dart';
-import 'package:khunit/pages/show.dart';
-import 'package:khunit/widgets/drawer.dart';
+// import 'package:khunit/widgets/drawer.dart';
 
 class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
@@ -36,8 +34,8 @@ class _HomeState extends State<Home> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => CalculateScreen(
-                      title: menuItem.title,
-                    ),
+                          title: menuItem.title,
+                        ),
                   ),
                 );
               },

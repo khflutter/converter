@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:khunit/config/kh_unit_env.dart';
+import 'package:khunit/config/env.dart';
 
 class CalculateScreen extends StatefulWidget {
   final String title;
