@@ -91,7 +91,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
                                       height: 60.0,
                                       padding: EdgeInsets.only(
                                         left: 26.0,
-                                        right: 26.0,
+                                        right: 42.0,
                                       ),
                                       margin: EdgeInsets.only(
                                         right: 16.0,
@@ -169,7 +169,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
                                       height: 60.0,
                                       padding: EdgeInsets.only(
                                         left: 26.0,
-                                        right: 26.0,
+                                        right: 42.0,
                                       ),
                                       margin: EdgeInsets.only(
                                         right: 16.0,
