@@ -3,37 +3,37 @@ import 'package:flutter/material.dart';
 import 'package:khunit/config/env.dart';
 import 'package:khunit/database/db.dart';
 import 'package:khunit/models/unit.dart';
-import 'package:khunit/pages/calculate.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+// import 'package:khunit/pages/calculate.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 
 class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  // final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   String _token;
 
   @override
   void initState() {
     super.initState();
-    _firebaseMessaging.requestNotificationPermissions();
+    // _firebaseMessaging.requestNotificationPermissions();
 
-    _firebaseMessaging.configure(
-      onMessage: (Map<String, dynamic> message) async {
-        print("onMessage: $message");
-      },
-      onLaunch: (Map<String, dynamic> message) async {
-        print("onLaunch: $message");
-      },
-      onResume: (Map<String, dynamic> message) async {
-        print("onResume: $message");
-      },
-    );
+    // _firebaseMessaging.configure(
+    //   onMessage: (Map<String, dynamic> message) async {
+    //     print("onMessage: $message");
+    //   },
+    //   onLaunch: (Map<String, dynamic> message) async {
+    //     print("onLaunch: $message");
+    //   },
+    //   onResume: (Map<String, dynamic> message) async {
+    //     print("onResume: $message");
+    //   },
+    // );
   }
 
   Future<void> _getToken() async {
-    _token = await _firebaseMessaging.getToken();
+    // _token = await _firebaseMessaging.getToken();
     print(_token);
   }
 
